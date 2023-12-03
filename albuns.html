@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padrões WEB</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .album {
+            margin-bottom: 20px;
+        }
+
+        .album img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="menu-principal">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="albuns.html">Álbuns</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <h1>Álbuns</h1>
+
+        <div id="lista-albuns"></div>
+
+    </main>
+
+    <footer> Copyright 2023 (c) </footer>
+
+    <script>
+        const albumsData = [
+            {
+                title: 'Europa',
+                images: [
+                    'album1/imagem1.jpg',
+                    
+                ]
+            },
+            {
+                title: 'Ásia',
+                images: [
+                    'album2/imagem1.jpg',
+                  
+                ]
+            },
+            {
+                title: 'Américas',
+                images: [
+                    'album3/imagem1.jpg',
+                    'album3/imagem2.jpg',
+                    'album3/imagem3.jpg',
+                    
+                ]
+            },
+            {
+                title: 'África',
+                images: [
+                    'album4/imagem1.jpg',
+                
+                
+                ]
+                
+            }
+        ];
+
+        const listaAlbuns = document.getElementById('lista-albuns');
+
+        albumsData.forEach(album => {
+            const albumElement = document.createElement('div');
+            albumElement.classList.add('album');
+
+            const h2 = document.createElement('h2');
+            h2.textContent = album.title;
+
+            albumElement.appendChild(h2);
+
+            album.images.forEach(imageSrc => {
+                const img = document.createElement('img');
+                img.src = imageSrc;
+                img.alt = 'Imagem';
+                albumElement.appendChild(img);
+            });
+
+            listaAlbuns.appendChild(albumElement);
+        });
+    </script>
+
+</body>
+
+</html>
